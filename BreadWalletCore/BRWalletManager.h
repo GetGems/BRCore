@@ -151,7 +151,6 @@ static NSString *getKeychainString(NSString *key, NSError **error)
 @property (nonatomic, strong) id<BRKeySequence> sequence;
 @property (nonatomic, strong) id<BRMnemonic> mnemonic;
 @property (nonatomic, readonly) NSData *masterPublicKey; // master public key used to generate wallet addresses
-@property (nonatomic, copy) NSString *seedPhrase; // requesting seedPhrase will trigger authentication
 @property (nonatomic, readonly) NSTimeInterval seedCreationTime; // interval since refrence date, 00:00:00 01/01/01 GMT
 @property (nonatomic, readonly) NSTimeInterval secureTime; // last known time from an ssl server connection
 @property (nonatomic, assign) uint64_t spendingLimit; // amount that can be spent using touch id without pin entry
@@ -167,6 +166,9 @@ static NSString *getKeychainString(NSString *key, NSError **error)
 @property (nonatomic, assign) size_t averageBlockSize; // set this to enable basic floating fee calculation
 
 + (instancetype)sharedInstance;
+
+- (NSString*)seedPhraseAuthenticated:(BOOL)authenticate;
+- (void)setSeedPhrase:(NSString *)seedPhrase;
 
 - (NSString *)generateRandomSeed; // generates a random seed, saves to keychain and returns the associated seedPhrase
 - (NSData *)seedWithPrompt:(NSString *)authprompt forAmount:(uint64_t)amount; // authenticates user and returns seed
