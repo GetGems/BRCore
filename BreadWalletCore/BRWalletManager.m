@@ -233,7 +233,7 @@
 
 - (NSString*)seedPhraseAuthenticated:(BOOL)authenticate
 {
-    if(!authenticate) return [self seedPhrase];
+    if(authenticate) return [self seedPhrase];
     return getKeychainString(MNEMONIC_KEY, nil);
 }
 
