@@ -31,6 +31,17 @@
 #define WALLET_NEEDS_BACKUP_KEY @"WALLET_NEEDS_BACKUP"
 #define BRWalletManagerSeedChangedNotification @"BRWalletManagerSeedChangedNotification"
 
+#define SEED_ENTROPY_LENGTH    (128/8)
+
+#define MNEMONIC_KEY        @"mnemonic"
+#define CREATION_TIME_KEY   @"creationtime"
+#define MASTER_PUBKEY_KEY   @"masterpubkey"
+#define SPEND_LIMIT_KEY     @"spendlimit"
+#define PIN_KEY             @"pin"
+#define PIN_FAIL_COUNT_KEY  @"pinfailcount"
+#define PIN_FAIL_HEIGHT_KEY @"pinfailheight"
+#define SEED_KEY            @"seed" // depreceated
+
 @interface BRWalletManager : NSObject<UIAlertViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, readonly) BRWallet *wallet;

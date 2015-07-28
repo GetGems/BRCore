@@ -44,7 +44,7 @@
 #define UNSPENT_URL @"https://api.chain.com/v2/%@/addresses/%@/unspents?api-key-id=eed0d7697a880144bb854676f88d123f"
 #define TICKER_URL  @"https://bitpay.com/rates"
 
-#define SEED_ENTROPY_LENGTH    (128/8)
+
 #define SEC_ATTR_SERVICE       @"org.voisine.breadwallet"
 #define DEFAULT_CURRENCY_PRICE 500.0
 #define DEFAULT_CURRENCY_CODE  @"USD"
@@ -63,15 +63,6 @@
 #define CURRENCY_PRICES_KEY     @"CURRENCY_PRICES"
 #define SPEND_LIMIT_AMOUNT_KEY  @"SPEND_LIMIT_AMOUNT"
 #define SECURE_TIME_KEY         @"SECURE_TIME"
-
-#define MNEMONIC_KEY        @"mnemonic"
-#define CREATION_TIME_KEY   @"creationtime"
-#define MASTER_PUBKEY_KEY   @"masterpubkey"
-#define SPEND_LIMIT_KEY     @"spendlimit"
-#define PIN_KEY             @"pin"
-#define PIN_FAIL_COUNT_KEY  @"pinfailcount"
-#define PIN_FAIL_HEIGHT_KEY @"pinfailheight"
-#define SEED_KEY            @"seed" // depreceated
 
 static BOOL setKeychainData(NSData *data, NSString *key, BOOL authenticated)
 {
