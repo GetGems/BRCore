@@ -32,7 +32,6 @@
 #import "BRTransactionEntity.h"
 #import "BRAddressEntity.h"
 #import "NSString+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
 #import <MagicalRecord.h>
 #import "Reachability.h"
 #import "BreadWalletCommons.h"
@@ -44,8 +43,6 @@
 #define UNSPENT_URL @"https://api.chain.com/v2/%@/addresses/%@/unspents?api-key-id=eed0d7697a880144bb854676f88d123f"
 #define TICKER_URL  @"https://bitpay.com/rates"
 
-
-#define SEC_ATTR_SERVICE       @"org.voisine.breadwallet"
 #define DEFAULT_CURRENCY_PRICE 500.0
 #define DEFAULT_CURRENCY_CODE  @"USD"
 #define DEFAULT_SPENT_LIMIT    SATOSHIS
@@ -63,103 +60,6 @@
 #define CURRENCY_PRICES_KEY     @"CURRENCY_PRICES"
 #define SPEND_LIMIT_AMOUNT_KEY  @"SPEND_LIMIT_AMOUNT"
 #define SECURE_TIME_KEY         @"SECURE_TIME"
-
-static BOOL setKeychainData(NSData *data, NSString *key, BOOL authenticated)
-{
-    if (! key) return NO;
-
-    id accessible = (authenticated) ? (__bridge id)kSecAttrAccessibleWhenUnlockedThisDeviceOnly :
-                    (__bridge id)kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-    NSDictionary *query = @{(__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
-                            (__bridge id)kSecAttrService:SEC_ATTR_SERVICE,
-                            (__bridge id)kSecAttrAccount:key};
-    
-    if (SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL) == errSecItemNotFound) {
-        if (! data) return YES;
-
-        NSDictionary *item = @{(__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
-                               (__bridge id)kSecAttrService:SEC_ATTR_SERVICE,
-                               (__bridge id)kSecAttrAccount:key,
-                               (__bridge id)kSecAttrAccessible:accessible,
-                               (__bridge id)kSecValueData:data};
-        OSStatus status = SecItemAdd((__bridge CFDictionaryRef)item, NULL);
-        
-        if (status == noErr) return YES;
-        NSLog(@"SecItemAdd error status %d", (int)status);
-        return NO;
-    }
-    
-    if (! data) {
-        OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
-
-        if (status == noErr) return YES;
-        NSLog(@"SecItemDelete error status %d", (int)status);
-        return NO;
-    }
-
-    NSDictionary *update = @{(__bridge id)kSecAttrAccessible:accessible,
-                             (__bridge id)kSecValueData:data};
-    OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)update);
-    
-    if (status == noErr) return YES;
-    NSLog(@"SecItemUpdate error status %d", (int)status);
-    return NO;
-}
-
-static NSData *getKeychainData(NSString *key, NSError **error)
-{
-    NSDictionary *query = @{(__bridge id)kSecClass:(__bridge id)kSecClassGenericPassword,
-                            (__bridge id)kSecAttrService:SEC_ATTR_SERVICE,
-                            (__bridge id)kSecAttrAccount:key,
-                            (__bridge id)kSecReturnData:@YES};
-    CFDataRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-
-    if (status == errSecItemNotFound) return nil;
-    if (status == noErr) return CFBridgingRelease(result);
-    if (error) *error = [NSError errorWithDomain:@"BreadWallet" code:status
-                         userInfo:@{NSLocalizedDescriptionKey:@"SecItemCopyMatching error"}];
-    return nil;
-}
-
-static BOOL setKeychainInt(int64_t i, NSString *key, BOOL authenticated)
-{
-    @autoreleasepool {
-        NSMutableData *d = [NSMutableData secureDataWithLength:sizeof(int64_t)];
-
-        *(int64_t *)d.mutableBytes = i;
-        return setKeychainData(d, key, authenticated);
-    }
-}
-
-static int64_t getKeychainInt(NSString *key, NSError **error)
-{
-    @autoreleasepool {
-        NSData *d = getKeychainData(key, error);
-
-        return (d.length == sizeof(int64_t)) ? *(int64_t *)d.bytes : 0;
-    }
-}
-
-static BOOL setKeychainString(NSString *s, NSString *key, BOOL authenticated)
-{
-    @autoreleasepool {
-        NSData *d = (s) ? CFBridgingRelease(CFStringCreateExternalRepresentation(SecureAllocator(), (CFStringRef)s,
-                                                                                 kCFStringEncodingUTF8, 0)) : nil;
-        
-        return setKeychainData(d, key, authenticated);
-    }
-}
-
-static NSString *getKeychainString(NSString *key, NSError **error)
-{
-    @autoreleasepool {
-        NSData *d = getKeychainData(key, error);
-        
-        return (d) ? CFBridgingRelease(CFStringCreateFromExternalRepresentation(SecureAllocator(), (CFDataRef)d,
-                                                                                kCFStringEncodingUTF8)) : nil;
-    }
-}
 
 @interface BRWalletManager()
 
