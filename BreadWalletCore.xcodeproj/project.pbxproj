@@ -1,0 +1,888 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AD514BDF3312FBA4632BFF5 /* libPods-BreadWalletCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B90A5FBA0DAD9BAB5C3660 /* libPods-BreadWalletCore.a */; };
+		E18240781B677AA00050A923 /* BreadWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E18240751B677AA00050A923 /* BreadWallet.xcdatamodeld */; };
+		E1944E1E1B66810800823C1B /* libBreadWalletCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1944E121B66810700823C1B /* libBreadWalletCore.a */; };
+		E1944E3A1B6681F800823C1B /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E2F1B6681F800823C1B /* BRAddressEntity.m */; };
+		E1944E3B1B6681F800823C1B /* BRMerkleBlockEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E311B6681F800823C1B /* BRMerkleBlockEntity.m */; };
+		E1944E3C1B6681F800823C1B /* BRPeerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E331B6681F800823C1B /* BRPeerEntity.m */; };
+		E1944E3D1B6681F800823C1B /* BRTransactionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E351B6681F800823C1B /* BRTransactionEntity.m */; };
+		E1944E3E1B6681F800823C1B /* BRTxInputEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E371B6681F800823C1B /* BRTxInputEntity.m */; };
+		E1944E3F1B6681F800823C1B /* BRTxOutputEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E391B6681F800823C1B /* BRTxOutputEntity.m */; };
+		E1944E5C1B66820300823C1B /* BRKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E411B66820300823C1B /* BRKey.m */; };
+		E1944E5D1B66820300823C1B /* BRKey+BIP38.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E431B66820300823C1B /* BRKey+BIP38.m */; };
+		E1944E5E1B66820300823C1B /* BRTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E451B66820300823C1B /* BRTransaction.m */; };
+		E1944E5F1B66820300823C1B /* BRBIP32Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E481B66820300823C1B /* BRBIP32Sequence.m */; };
+		E1944E601B66820300823C1B /* BRBIP39Mnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E4B1B66820300823C1B /* BRBIP39Mnemonic.m */; };
+		E1944E611B66820300823C1B /* BRWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E4D1B66820300823C1B /* BRWallet.m */; };
+		E1944E621B66820300823C1B /* BRWalletManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E4F1B66820300823C1B /* BRWalletManager.m */; };
+		E1944E631B66820300823C1B /* BRMerkleBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E511B66820300823C1B /* BRMerkleBlock.m */; };
+		E1944E641B66820300823C1B /* BRBloomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E531B66820300823C1B /* BRBloomFilter.m */; };
+		E1944E651B66820300823C1B /* BRPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E551B66820300823C1B /* BRPeer.m */; };
+		E1944E661B66820300823C1B /* BRPeerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E571B66820300823C1B /* BRPeerManager.m */; };
+		E1944E671B66820300823C1B /* BRPaymentProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E591B66820300823C1B /* BRPaymentProtocol.m */; };
+		E1944E681B66820300823C1B /* BRPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E5B1B66820300823C1B /* BRPaymentRequest.m */; };
+		E1944E741B66821A00823C1B /* NSString+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E6B1B66821A00823C1B /* NSString+Bitcoin.m */; };
+		E1944E751B66821A00823C1B /* NSData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E6D1B66821A00823C1B /* NSData+Bitcoin.m */; };
+		E1944E761B66821A00823C1B /* NSMutableData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E6F1B66821A00823C1B /* NSMutableData+Bitcoin.m */; };
+		E1944E781B66821A00823C1B /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E731B66821A00823C1B /* UIImage+Blur.m */; };
+		E1944E7B1B66822300823C1B /* BRCoreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E7A1B66822300823C1B /* BRCoreAppDelegate.m */; };
+		E1944E8B1B66824D00823C1B /* BIP39EnglishWords.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1944E881B66824D00823C1B /* BIP39EnglishWords.plist */; };
+		E1944E8C1B66824D00823C1B /* FixedPeers.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1944E891B66824D00823C1B /* FixedPeers.plist */; };
+		E1944E911B66825D00823C1B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944E8F1B66825D00823C1B /* Reachability.m */; };
+		E1944F5D1B66878200823C1B /* libsecp256k1-config.h in Headers */ = {isa = PBXBuildFile; fileRef = E1944F5C1B66878200823C1B /* libsecp256k1-config.h */; };
+		E1944F5F1B6687A100823C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1944F5E1B6687A100823C1B /* Foundation.framework */; };
+		E1944F611B6687A500823C1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1944F601B6687A500823C1B /* UIKit.framework */; };
+		E1944F641B668CC100823C1B /* BreadWalletCommons.h in Headers */ = {isa = PBXBuildFile; fileRef = E1944F631B668CC100823C1B /* BreadWalletCommons.h */; };
+		E1944F8C1B669FFB00823C1B /* libsecp256k1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1944F8B1B669FFB00823C1B /* libsecp256k1.a */; };
+		E1944FA81B66A21B00823C1B /* MagicalRecord+BreadWallet.h in Headers */ = {isa = PBXBuildFile; fileRef = E1944FA61B66A21B00823C1B /* MagicalRecord+BreadWallet.h */; };
+		E1944FA91B66A21B00823C1B /* MagicalRecord+BreadWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1944FA71B66A21B00823C1B /* MagicalRecord+BreadWallet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1944E1F1B66810800823C1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1944E0A1B66810700823C1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1944E111B66810700823C1B;
+			remoteInfo = BreadWalletCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1944E101B66810700823C1B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		470CA8EE32F4588A7D612B27 /* Pods-BreadWalletCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreadWalletCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreadWalletCore/Pods-BreadWalletCore.release.xcconfig"; sourceTree = "<group>"; };
+		63524500F5C769DAC1AB991F /* Pods-BreadWalletCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreadWalletCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreadWalletCore/Pods-BreadWalletCore.debug.xcconfig"; sourceTree = "<group>"; };
+		A1B90A5FBA0DAD9BAB5C3660 /* libPods-BreadWalletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreadWalletCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E18240761B677AA00050A923 /* BreadWallet 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BreadWallet 2.xcdatamodel"; sourceTree = "<group>"; };
+		E18240771B677AA00050A923 /* BreadWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreadWallet.xcdatamodel; sourceTree = "<group>"; };
+		E1944E121B66810700823C1B /* libBreadWalletCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBreadWalletCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1944E1D1B66810800823C1B /* BreadWalletCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreadWalletCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1944E231B66810800823C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1944E2E1B6681F800823C1B /* BRAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressEntity.h; sourceTree = "<group>"; };
+		E1944E2F1B6681F800823C1B /* BRAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressEntity.m; sourceTree = "<group>"; };
+		E1944E301B6681F800823C1B /* BRMerkleBlockEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMerkleBlockEntity.h; sourceTree = "<group>"; };
+		E1944E311B6681F800823C1B /* BRMerkleBlockEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMerkleBlockEntity.m; sourceTree = "<group>"; };
+		E1944E321B6681F800823C1B /* BRPeerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerEntity.h; sourceTree = "<group>"; };
+		E1944E331B6681F800823C1B /* BRPeerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeerEntity.m; sourceTree = "<group>"; };
+		E1944E341B6681F800823C1B /* BRTransactionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTransactionEntity.h; sourceTree = "<group>"; };
+		E1944E351B6681F800823C1B /* BRTransactionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTransactionEntity.m; sourceTree = "<group>"; };
+		E1944E361B6681F800823C1B /* BRTxInputEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTxInputEntity.h; sourceTree = "<group>"; };
+		E1944E371B6681F800823C1B /* BRTxInputEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTxInputEntity.m; sourceTree = "<group>"; };
+		E1944E381B6681F800823C1B /* BRTxOutputEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTxOutputEntity.h; sourceTree = "<group>"; };
+		E1944E391B6681F800823C1B /* BRTxOutputEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTxOutputEntity.m; sourceTree = "<group>"; };
+		E1944E401B66820300823C1B /* BRKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRKey.h; sourceTree = "<group>"; };
+		E1944E411B66820300823C1B /* BRKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRKey.m; sourceTree = "<group>"; };
+		E1944E421B66820300823C1B /* BRKey+BIP38.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKey+BIP38.h"; sourceTree = "<group>"; };
+		E1944E431B66820300823C1B /* BRKey+BIP38.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BRKey+BIP38.m"; sourceTree = "<group>"; };
+		E1944E441B66820300823C1B /* BRTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTransaction.h; sourceTree = "<group>"; };
+		E1944E451B66820300823C1B /* BRTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTransaction.m; sourceTree = "<group>"; };
+		E1944E461B66820300823C1B /* BRKeySequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRKeySequence.h; sourceTree = "<group>"; };
+		E1944E471B66820300823C1B /* BRBIP32Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBIP32Sequence.h; sourceTree = "<group>"; };
+		E1944E481B66820300823C1B /* BRBIP32Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBIP32Sequence.m; sourceTree = "<group>"; };
+		E1944E491B66820300823C1B /* BRMnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMnemonic.h; sourceTree = "<group>"; };
+		E1944E4A1B66820300823C1B /* BRBIP39Mnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBIP39Mnemonic.h; sourceTree = "<group>"; };
+		E1944E4B1B66820300823C1B /* BRBIP39Mnemonic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBIP39Mnemonic.m; sourceTree = "<group>"; };
+		E1944E4C1B66820300823C1B /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
+		E1944E4D1B66820300823C1B /* BRWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRWallet.m; sourceTree = "<group>"; };
+		E1944E4E1B66820300823C1B /* BRWalletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWalletManager.h; sourceTree = "<group>"; };
+		E1944E4F1B66820300823C1B /* BRWalletManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRWalletManager.m; sourceTree = "<group>"; };
+		E1944E501B66820300823C1B /* BRMerkleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMerkleBlock.h; sourceTree = "<group>"; };
+		E1944E511B66820300823C1B /* BRMerkleBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMerkleBlock.m; sourceTree = "<group>"; };
+		E1944E521B66820300823C1B /* BRBloomFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBloomFilter.h; sourceTree = "<group>"; };
+		E1944E531B66820300823C1B /* BRBloomFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBloomFilter.m; sourceTree = "<group>"; };
+		E1944E541B66820300823C1B /* BRPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeer.h; sourceTree = "<group>"; };
+		E1944E551B66820300823C1B /* BRPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeer.m; sourceTree = "<group>"; };
+		E1944E561B66820300823C1B /* BRPeerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerManager.h; sourceTree = "<group>"; };
+		E1944E571B66820300823C1B /* BRPeerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeerManager.m; sourceTree = "<group>"; };
+		E1944E581B66820300823C1B /* BRPaymentProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPaymentProtocol.h; sourceTree = "<group>"; };
+		E1944E591B66820300823C1B /* BRPaymentProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPaymentProtocol.m; sourceTree = "<group>"; };
+		E1944E5A1B66820300823C1B /* BRPaymentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPaymentRequest.h; sourceTree = "<group>"; };
+		E1944E5B1B66820300823C1B /* BRPaymentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPaymentRequest.m; sourceTree = "<group>"; };
+		E1944E6A1B66821A00823C1B /* NSString+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Bitcoin.h"; sourceTree = "<group>"; };
+		E1944E6B1B66821A00823C1B /* NSString+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Bitcoin.m"; sourceTree = "<group>"; };
+		E1944E6C1B66821A00823C1B /* NSData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Bitcoin.h"; sourceTree = "<group>"; };
+		E1944E6D1B66821A00823C1B /* NSData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Bitcoin.m"; sourceTree = "<group>"; };
+		E1944E6E1B66821A00823C1B /* NSMutableData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Bitcoin.h"; sourceTree = "<group>"; };
+		E1944E6F1B66821A00823C1B /* NSMutableData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Bitcoin.m"; sourceTree = "<group>"; };
+		E1944E721B66821A00823C1B /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
+		E1944E731B66821A00823C1B /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
+		E1944E791B66822300823C1B /* BRCoreAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRCoreAppDelegate.h; sourceTree = "<group>"; };
+		E1944E7A1B66822300823C1B /* BRCoreAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRCoreAppDelegate.m; sourceTree = "<group>"; };
+		E1944E801B66823000823C1B /* BreadWalletCoreBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreadWalletCoreBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1944E831B66823000823C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1944E881B66824D00823C1B /* BIP39EnglishWords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39EnglishWords.plist; sourceTree = "<group>"; };
+		E1944E891B66824D00823C1B /* FixedPeers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FixedPeers.plist; sourceTree = "<group>"; };
+		E1944E8E1B66825D00823C1B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E1944E8F1B66825D00823C1B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E1944E901B66825D00823C1B /* ccMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccMemory.h; sourceTree = "<group>"; };
+		E1944F5C1B66878200823C1B /* libsecp256k1-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libsecp256k1-config.h"; sourceTree = "<group>"; };
+		E1944F5E1B6687A100823C1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E1944F601B6687A500823C1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E1944F631B668CC100823C1B /* BreadWalletCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreadWalletCommons.h; sourceTree = "<group>"; };
+		E1944F8B1B669FFB00823C1B /* libsecp256k1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsecp256k1.a; path = libsecp256k1/libsecp256k1.a; sourceTree = "<group>"; };
+		E1944F8E1B66A02400823C1B /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		E1944F8F1B66A02400823C1B /* ecdsa_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa_impl.h; sourceTree = "<group>"; };
+		E1944F901B66A02400823C1B /* eckey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eckey.h; sourceTree = "<group>"; };
+		E1944F911B66A02400823C1B /* eckey_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eckey_impl.h; sourceTree = "<group>"; };
+		E1944F921B66A02400823C1B /* ecmult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult.h; sourceTree = "<group>"; };
+		E1944F931B66A02400823C1B /* ecmult_gen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_gen.h; sourceTree = "<group>"; };
+		E1944F941B66A02400823C1B /* ecmult_gen_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_gen_impl.h; sourceTree = "<group>"; };
+		E1944F951B66A02400823C1B /* ecmult_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_impl.h; sourceTree = "<group>"; };
+		E1944F961B66A02400823C1B /* field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field.h; sourceTree = "<group>"; };
+		E1944F971B66A02400823C1B /* field_10x26.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_10x26.h; sourceTree = "<group>"; };
+		E1944F981B66A02400823C1B /* field_10x26_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_10x26_impl.h; sourceTree = "<group>"; };
+		E1944F991B66A02400823C1B /* field_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_impl.h; sourceTree = "<group>"; };
+		E1944F9A1B66A02400823C1B /* group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = group.h; sourceTree = "<group>"; };
+		E1944F9B1B66A02400823C1B /* group_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = group_impl.h; sourceTree = "<group>"; };
+		E1944F9C1B66A02400823C1B /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		E1944F9D1B66A02400823C1B /* hash_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash_impl.h; sourceTree = "<group>"; };
+		E1944F9E1B66A02400823C1B /* num.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num.h; sourceTree = "<group>"; };
+		E1944F9F1B66A02400823C1B /* num_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num_impl.h; sourceTree = "<group>"; };
+		E1944FA01B66A02400823C1B /* scalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar.h; sourceTree = "<group>"; };
+		E1944FA11B66A02400823C1B /* scalar_8x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_8x32.h; sourceTree = "<group>"; };
+		E1944FA21B66A02400823C1B /* scalar_8x32_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_8x32_impl.h; sourceTree = "<group>"; };
+		E1944FA31B66A02400823C1B /* scalar_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_impl.h; sourceTree = "<group>"; };
+		E1944FA41B66A02400823C1B /* secp256k1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secp256k1.h; sourceTree = "<group>"; };
+		E1944FA51B66A02400823C1B /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		E1944FA61B66A21B00823C1B /* MagicalRecord+BreadWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+BreadWallet.h"; sourceTree = "<group>"; };
+		E1944FA71B66A21B00823C1B /* MagicalRecord+BreadWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+BreadWallet.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1944E0F1B66810700823C1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1944F8C1B669FFB00823C1B /* libsecp256k1.a in Frameworks */,
+				E1944F611B6687A500823C1B /* UIKit.framework in Frameworks */,
+				E1944F5F1B6687A100823C1B /* Foundation.framework in Frameworks */,
+				4AD514BDF3312FBA4632BFF5 /* libPods-BreadWalletCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1944E1A1B66810800823C1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1944E1E1B66810800823C1B /* libBreadWalletCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1944E7D1B66823000823C1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A3E36185C92953F2CDCDDFAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63524500F5C769DAC1AB991F /* Pods-BreadWalletCore.debug.xcconfig */,
+				470CA8EE32F4588A7D612B27 /* Pods-BreadWalletCore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3C1251891B63E7BDA5A5C85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1944F8B1B669FFB00823C1B /* libsecp256k1.a */,
+				E1944F601B6687A500823C1B /* UIKit.framework */,
+				E1944F5E1B6687A100823C1B /* Foundation.framework */,
+				A1B90A5FBA0DAD9BAB5C3660 /* libPods-BreadWalletCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1944E091B66810700823C1B = {
+			isa = PBXGroup;
+			children = (
+				E1944E141B66810700823C1B /* BreadWalletCore */,
+				E1944E211B66810800823C1B /* BreadWalletCoreTests */,
+				E1944E811B66823000823C1B /* BreadWalletCoreBundle */,
+				E1944E131B66810700823C1B /* Products */,
+				A3E36185C92953F2CDCDDFAE /* Pods */,
+				C3C1251891B63E7BDA5A5C85 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E1944E131B66810700823C1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E121B66810700823C1B /* libBreadWalletCore.a */,
+				E1944E1D1B66810800823C1B /* BreadWalletCoreTests.xctest */,
+				E1944E801B66823000823C1B /* BreadWalletCoreBundle.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1944E141B66810700823C1B /* BreadWalletCore */ = {
+			isa = PBXGroup;
+			children = (
+				E1944F631B668CC100823C1B /* BreadWalletCommons.h */,
+				E1944E791B66822300823C1B /* BRCoreAppDelegate.h */,
+				E1944E7A1B66822300823C1B /* BRCoreAppDelegate.m */,
+				E1944E691B66820D00823C1B /* Categories */,
+				E1944E2C1B6681E400823C1B /* Models */,
+				E1944E8D1B66825100823C1B /* ThirdParty */,
+			);
+			path = BreadWalletCore;
+			sourceTree = "<group>";
+		};
+		E1944E211B66810800823C1B /* BreadWalletCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E221B66810800823C1B /* Supporting Files */,
+			);
+			path = BreadWalletCoreTests;
+			sourceTree = "<group>";
+		};
+		E1944E221B66810800823C1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E231B66810800823C1B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1944E2C1B6681E400823C1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E2D1B6681E900823C1B /* Entities */,
+				E1944E401B66820300823C1B /* BRKey.h */,
+				E1944E411B66820300823C1B /* BRKey.m */,
+				E1944E421B66820300823C1B /* BRKey+BIP38.h */,
+				E1944E431B66820300823C1B /* BRKey+BIP38.m */,
+				E1944E441B66820300823C1B /* BRTransaction.h */,
+				E1944E451B66820300823C1B /* BRTransaction.m */,
+				E1944E461B66820300823C1B /* BRKeySequence.h */,
+				E1944E471B66820300823C1B /* BRBIP32Sequence.h */,
+				E1944E481B66820300823C1B /* BRBIP32Sequence.m */,
+				E1944E491B66820300823C1B /* BRMnemonic.h */,
+				E1944E4A1B66820300823C1B /* BRBIP39Mnemonic.h */,
+				E1944E4B1B66820300823C1B /* BRBIP39Mnemonic.m */,
+				E1944E4C1B66820300823C1B /* BRWallet.h */,
+				E1944E4D1B66820300823C1B /* BRWallet.m */,
+				E1944E4E1B66820300823C1B /* BRWalletManager.h */,
+				E1944E4F1B66820300823C1B /* BRWalletManager.m */,
+				E1944E501B66820300823C1B /* BRMerkleBlock.h */,
+				E1944E511B66820300823C1B /* BRMerkleBlock.m */,
+				E1944E521B66820300823C1B /* BRBloomFilter.h */,
+				E1944E531B66820300823C1B /* BRBloomFilter.m */,
+				E1944E541B66820300823C1B /* BRPeer.h */,
+				E1944E551B66820300823C1B /* BRPeer.m */,
+				E1944E561B66820300823C1B /* BRPeerManager.h */,
+				E1944E571B66820300823C1B /* BRPeerManager.m */,
+				E1944E581B66820300823C1B /* BRPaymentProtocol.h */,
+				E1944E591B66820300823C1B /* BRPaymentProtocol.m */,
+				E1944E5A1B66820300823C1B /* BRPaymentRequest.h */,
+				E1944E5B1B66820300823C1B /* BRPaymentRequest.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E1944E2D1B6681E900823C1B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E2E1B6681F800823C1B /* BRAddressEntity.h */,
+				E1944E2F1B6681F800823C1B /* BRAddressEntity.m */,
+				E1944E301B6681F800823C1B /* BRMerkleBlockEntity.h */,
+				E1944E311B6681F800823C1B /* BRMerkleBlockEntity.m */,
+				E1944E321B6681F800823C1B /* BRPeerEntity.h */,
+				E1944E331B6681F800823C1B /* BRPeerEntity.m */,
+				E1944E341B6681F800823C1B /* BRTransactionEntity.h */,
+				E1944E351B6681F800823C1B /* BRTransactionEntity.m */,
+				E1944E361B6681F800823C1B /* BRTxInputEntity.h */,
+				E1944E371B6681F800823C1B /* BRTxInputEntity.m */,
+				E1944E381B6681F800823C1B /* BRTxOutputEntity.h */,
+				E1944E391B6681F800823C1B /* BRTxOutputEntity.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		E1944E691B66820D00823C1B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E6A1B66821A00823C1B /* NSString+Bitcoin.h */,
+				E1944E6B1B66821A00823C1B /* NSString+Bitcoin.m */,
+				E1944E6C1B66821A00823C1B /* NSData+Bitcoin.h */,
+				E1944E6D1B66821A00823C1B /* NSData+Bitcoin.m */,
+				E1944E6E1B66821A00823C1B /* NSMutableData+Bitcoin.h */,
+				E1944E6F1B66821A00823C1B /* NSMutableData+Bitcoin.m */,
+				E1944E721B66821A00823C1B /* UIImage+Blur.h */,
+				E1944E731B66821A00823C1B /* UIImage+Blur.m */,
+				E1944FA61B66A21B00823C1B /* MagicalRecord+BreadWallet.h */,
+				E1944FA71B66A21B00823C1B /* MagicalRecord+BreadWallet.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		E1944E811B66823000823C1B /* BreadWalletCoreBundle */ = {
+			isa = PBXGroup;
+			children = (
+				E18240751B677AA00050A923 /* BreadWallet.xcdatamodeld */,
+				E1944E881B66824D00823C1B /* BIP39EnglishWords.plist */,
+				E1944E891B66824D00823C1B /* FixedPeers.plist */,
+				E1944E821B66823000823C1B /* Supporting Files */,
+			);
+			path = BreadWalletCoreBundle;
+			sourceTree = "<group>";
+		};
+		E1944E821B66823000823C1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1944E831B66823000823C1B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1944E8D1B66825100823C1B /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E1944F8D1B66A02400823C1B /* secp256k1 */,
+				E1944E8E1B66825D00823C1B /* Reachability.h */,
+				E1944E8F1B66825D00823C1B /* Reachability.m */,
+				E1944E901B66825D00823C1B /* ccMemory.h */,
+				E1944F5C1B66878200823C1B /* libsecp256k1-config.h */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		E1944F8D1B66A02400823C1B /* secp256k1 */ = {
+			isa = PBXGroup;
+			children = (
+				E1944F8E1B66A02400823C1B /* ecdsa.h */,
+				E1944F8F1B66A02400823C1B /* ecdsa_impl.h */,
+				E1944F901B66A02400823C1B /* eckey.h */,
+				E1944F911B66A02400823C1B /* eckey_impl.h */,
+				E1944F921B66A02400823C1B /* ecmult.h */,
+				E1944F931B66A02400823C1B /* ecmult_gen.h */,
+				E1944F941B66A02400823C1B /* ecmult_gen_impl.h */,
+				E1944F951B66A02400823C1B /* ecmult_impl.h */,
+				E1944F961B66A02400823C1B /* field.h */,
+				E1944F971B66A02400823C1B /* field_10x26.h */,
+				E1944F981B66A02400823C1B /* field_10x26_impl.h */,
+				E1944F991B66A02400823C1B /* field_impl.h */,
+				E1944F9A1B66A02400823C1B /* group.h */,
+				E1944F9B1B66A02400823C1B /* group_impl.h */,
+				E1944F9C1B66A02400823C1B /* hash.h */,
+				E1944F9D1B66A02400823C1B /* hash_impl.h */,
+				E1944F9E1B66A02400823C1B /* num.h */,
+				E1944F9F1B66A02400823C1B /* num_impl.h */,
+				E1944FA01B66A02400823C1B /* scalar.h */,
+				E1944FA11B66A02400823C1B /* scalar_8x32.h */,
+				E1944FA21B66A02400823C1B /* scalar_8x32_impl.h */,
+				E1944FA31B66A02400823C1B /* scalar_impl.h */,
+				E1944FA41B66A02400823C1B /* secp256k1.h */,
+				E1944FA51B66A02400823C1B /* util.h */,
+			);
+			path = secp256k1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E1944F431B66870300823C1B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1944F641B668CC100823C1B /* BreadWalletCommons.h in Headers */,
+				E1944FA81B66A21B00823C1B /* MagicalRecord+BreadWallet.h in Headers */,
+				E1944F5D1B66878200823C1B /* libsecp256k1-config.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E1944E111B66810700823C1B /* BreadWalletCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1944E261B66810800823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCore" */;
+			buildPhases = (
+				09CD0FAA0F197AD5153E494E /* Check Pods Manifest.lock */,
+				E1944E0E1B66810700823C1B /* Sources */,
+				E1944E0F1B66810700823C1B /* Frameworks */,
+				E1944E101B66810700823C1B /* CopyFiles */,
+				A1843FB4F287646C10E1318E /* Copy Pods Resources */,
+				E1944F431B66870300823C1B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreadWalletCore;
+			productName = BreadWalletCore;
+			productReference = E1944E121B66810700823C1B /* libBreadWalletCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E1944E1C1B66810800823C1B /* BreadWalletCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1944E291B66810800823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCoreTests" */;
+			buildPhases = (
+				E1944E191B66810800823C1B /* Sources */,
+				E1944E1A1B66810800823C1B /* Frameworks */,
+				E1944E1B1B66810800823C1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1944E201B66810800823C1B /* PBXTargetDependency */,
+			);
+			name = BreadWalletCoreTests;
+			productName = BreadWalletCoreTests;
+			productReference = E1944E1D1B66810800823C1B /* BreadWalletCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E1944E7F1B66823000823C1B /* BreadWalletCoreBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1944E841B66823000823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCoreBundle" */;
+			buildPhases = (
+				E1944E7C1B66823000823C1B /* Sources */,
+				E1944E7D1B66823000823C1B /* Frameworks */,
+				E1944E7E1B66823000823C1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreadWalletCoreBundle;
+			productName = BreadWalletCoreBundle;
+			productReference = E1944E801B66823000823C1B /* BreadWalletCoreBundle.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1944E0A1B66810700823C1B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "alon muroch";
+				TargetAttributes = {
+					E1944E111B66810700823C1B = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					E1944E1C1B66810800823C1B = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					E1944E7F1B66823000823C1B = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = E1944E0D1B66810700823C1B /* Build configuration list for PBXProject "BreadWalletCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E1944E091B66810700823C1B;
+			productRefGroup = E1944E131B66810700823C1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1944E111B66810700823C1B /* BreadWalletCore */,
+				E1944E1C1B66810800823C1B /* BreadWalletCoreTests */,
+				E1944E7F1B66823000823C1B /* BreadWalletCoreBundle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1944E1B1B66810800823C1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1944E7E1B66823000823C1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1944E8B1B66824D00823C1B /* BIP39EnglishWords.plist in Resources */,
+				E1944E8C1B66824D00823C1B /* FixedPeers.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09CD0FAA0F197AD5153E494E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A1843FB4F287646C10E1318E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreadWalletCore/Pods-BreadWalletCore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1944E0E1B66810700823C1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1944E911B66825D00823C1B /* Reachability.m in Sources */,
+				E1944E641B66820300823C1B /* BRBloomFilter.m in Sources */,
+				E1944E3B1B6681F800823C1B /* BRMerkleBlockEntity.m in Sources */,
+				E1944E3C1B6681F800823C1B /* BRPeerEntity.m in Sources */,
+				E1944E651B66820300823C1B /* BRPeer.m in Sources */,
+				E1944E3A1B6681F800823C1B /* BRAddressEntity.m in Sources */,
+				E1944E7B1B66822300823C1B /* BRCoreAppDelegate.m in Sources */,
+				E1944E5E1B66820300823C1B /* BRTransaction.m in Sources */,
+				E1944E5C1B66820300823C1B /* BRKey.m in Sources */,
+				E1944E3F1B6681F800823C1B /* BRTxOutputEntity.m in Sources */,
+				E1944E751B66821A00823C1B /* NSData+Bitcoin.m in Sources */,
+				E1944E741B66821A00823C1B /* NSString+Bitcoin.m in Sources */,
+				E1944E3D1B6681F800823C1B /* BRTransactionEntity.m in Sources */,
+				E1944E631B66820300823C1B /* BRMerkleBlock.m in Sources */,
+				E1944E661B66820300823C1B /* BRPeerManager.m in Sources */,
+				E1944FA91B66A21B00823C1B /* MagicalRecord+BreadWallet.m in Sources */,
+				E1944E5F1B66820300823C1B /* BRBIP32Sequence.m in Sources */,
+				E1944E671B66820300823C1B /* BRPaymentProtocol.m in Sources */,
+				E1944E621B66820300823C1B /* BRWalletManager.m in Sources */,
+				E1944E761B66821A00823C1B /* NSMutableData+Bitcoin.m in Sources */,
+				E1944E781B66821A00823C1B /* UIImage+Blur.m in Sources */,
+				E1944E681B66820300823C1B /* BRPaymentRequest.m in Sources */,
+				E1944E5D1B66820300823C1B /* BRKey+BIP38.m in Sources */,
+				E1944E3E1B6681F800823C1B /* BRTxInputEntity.m in Sources */,
+				E1944E611B66820300823C1B /* BRWallet.m in Sources */,
+				E1944E601B66820300823C1B /* BRBIP39Mnemonic.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1944E191B66810800823C1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1944E7C1B66823000823C1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18240781B677AA00050A923 /* BreadWallet.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1944E201B66810800823C1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1944E111B66810700823C1B /* BreadWalletCore */;
+			targetProxy = E1944E1F1B66810800823C1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E1944E241B66810800823C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E1944E251B66810800823C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1944E271B66810800823C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63524500F5C769DAC1AB991F /* Pods-BreadWalletCore.debug.xcconfig */;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord/MagicalRecord\"",
+					"$(SRCROOT)/secp256k1",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libsecp256k1",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E1944E281B66810800823C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 470CA8EE32F4588A7D612B27 /* Pods-BreadWalletCore.release.xcconfig */;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord/MagicalRecord\"",
+					"$(SRCROOT)/secp256k1",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libsecp256k1",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E1944E2A1B66810800823C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				INFOPLIST_FILE = BreadWalletCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libsecp256k1",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E1944E2B1B66810800823C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				INFOPLIST_FILE = BreadWalletCoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libsecp256k1",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E1944E851B66823000823C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BreadWalletCoreBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E1944E861B66823000823C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BreadWalletCoreBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1944E0D1B66810700823C1B /* Build configuration list for PBXProject "BreadWalletCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1944E241B66810800823C1B /* Debug */,
+				E1944E251B66810800823C1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1944E261B66810800823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1944E271B66810800823C1B /* Debug */,
+				E1944E281B66810800823C1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1944E291B66810800823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1944E2A1B66810800823C1B /* Debug */,
+				E1944E2B1B66810800823C1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1944E841B66823000823C1B /* Build configuration list for PBXNativeTarget "BreadWalletCoreBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1944E851B66823000823C1B /* Debug */,
+				E1944E861B66823000823C1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E18240751B677AA00050A923 /* BreadWallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E18240761B677AA00050A923 /* BreadWallet 2.xcdatamodel */,
+				E18240771B677AA00050A923 /* BreadWallet.xcdatamodel */,
+			);
+			currentVersion = E18240761B677AA00050A923 /* BreadWallet 2.xcdatamodel */;
+			path = BreadWallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E1944E0A1B66810700823C1B /* Project object */;
+}
