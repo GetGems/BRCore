@@ -34,6 +34,9 @@
 
 @interface BRWallet : NSObject
 
+@property (nonatomic, strong) NSOrderedSet *utxos;
+@property (nonatomic, strong) NSMutableDictionary *allTx;
+
 @property (nonatomic, readonly) uint64_t balance; // current wallet balance excluding transactions known to be invalid
 @property (nonatomic, readonly) NSString *receiveAddress; // returns the first unused external address
 @property (nonatomic, readonly) NSString *changeAddress; // returns the first unused internal address

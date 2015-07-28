@@ -62,8 +62,6 @@ static NSUInteger txAddressIndex(BRTransaction *tx, NSArray *chain) {
 @property (nonatomic, strong) NSMutableSet *allAddresses, *usedAddresses;
 @property (nonatomic, strong) NSSet *spentOutputs, *invalidTx;
 @property (nonatomic, strong) NSMutableOrderedSet *transactions;
-@property (nonatomic, strong) NSOrderedSet *utxos;
-@property (nonatomic, strong) NSMutableDictionary *allTx;
 @property (nonatomic, strong) NSArray *balanceHistory;
 @property (nonatomic, strong) NSData *(^seed)(NSString *authprompt, uint64_t amount);
 
