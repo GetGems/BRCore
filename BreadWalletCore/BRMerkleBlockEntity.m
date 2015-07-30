@@ -43,7 +43,7 @@
 
 - (instancetype)setAttributesFromBlock:(BRMerkleBlock *)block;
 {
-    [self.managedObjectContext performBlockAndWait:^{
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         self.blockHash = block.blockHash;
         self.version = block.version;
         self.prevBlock = block.prevBlock;
