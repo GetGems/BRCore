@@ -481,7 +481,12 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
     }
 
     [self.allTx removeObjectForKey:txHash];
-    if (transaction) [self.transactions removeObject:transaction];
+    if (transaction)
+    {
+        NSMutableOrderedSet *set = [[NSMutableOrderedSet alloc] initWithOrderedSet:self.transactions];
+        [set removeObject:transaction];
+        self.transactions = set;
+    }
     [self updateBalance];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@", txHash];
