@@ -48,7 +48,7 @@
 @property (nonatomic, assign) uint64_t feePerKb; // fee per kb of transaction size to use when including tx fee
 
 - (instancetype)initWithSequence:(id<BRKeySequence>)sequence
-                 masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt, uint64_t amount))seed;
+                 masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, NSString *authprompt, uint64_t amount))seed;
 
 // true if the address is controlled by the wallet
 - (BOOL)containsAddress:(NSString *)address;
@@ -69,7 +69,7 @@
 - (BRTransaction *)transactionForAmounts:(NSArray *)amounts toOutputScripts:(NSArray *)scripts withFee:(BOOL)fee;
 
 // sign any inputs in the given transaction that can be signed using private keys from the wallet
-- (BOOL)signTransaction:(BRTransaction *)transaction withPrompt:(NSString *)authprompt;
+- (BOOL)signTransaction:(BRTransaction *)transaction withPrompt:(NSString *)authprompt authenticate:(BOOL)authenticate;
 
 // true if the given transaction is associated with the wallet (even if it hasn't been registered), false otherwise
 - (BOOL)containsTransaction:(BRTransaction *)transaction;

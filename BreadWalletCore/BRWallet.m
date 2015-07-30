@@ -63,14 +63,14 @@ static NSUInteger txAddressIndex(BRTransaction *tx, NSArray *chain) {
 @property (nonatomic, strong) NSSet *spentOutputs, *invalidTx;
 @property (nonatomic, strong) NSMutableOrderedSet *transactions;
 @property (nonatomic, strong) NSArray *balanceHistory;
-@property (nonatomic, strong) NSData *(^seed)(NSString *authprompt, uint64_t amount);
+@property (nonatomic, strong) NSData *(^seed)(bool authenticate, NSString *authprompt, uint64_t amount);
 
 @end
 
 @implementation BRWallet
 
 - (instancetype)initWithSequence:(id<BRKeySequence>)sequence
-masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt, uint64_t amount))seed
+masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, NSString *authprompt, uint64_t amount))seed
 {
     if (! (self = [super init])) return nil;
 
@@ -113,7 +113,7 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
 {
     if (! _masterPublicKey) {
         @autoreleasepool { // @autoreleasepool ensures sensitive data will be dealocated immediately
-            _masterPublicKey = [self.sequence masterPublicKeyFromSeed:self.seed(nil, 0)];
+            _masterPublicKey = [self.sequence masterPublicKeyFromSeed:self.seed(NO, nil, 0)];
         }
     }
     
@@ -391,11 +391,11 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
 }
 
 // sign any inputs in the given transaction that can be signed using private keys from the wallet
-- (BOOL)signTransaction:(BRTransaction *)transaction withPrompt:(NSString *)authprompt
+- (BOOL)signTransaction:(BRTransaction *)transaction withPrompt:(NSString *)authprompt authenticate:(BOOL)authenticate
 {
     @autoreleasepool { // @autoreleasepool ensures sensitive data will be dealocated immediately
         int64_t amount = [self amountSentByTransaction:transaction] - [self amountReceivedFromTransaction:transaction];
-        NSData *seed = self.seed(authprompt, (amount > 0) ? amount : 0);
+        NSData *seed = self.seed(authenticate, authprompt, (amount > 0) ? amount : 0);
         NSMutableArray *pkeys = [NSMutableArray array];
         NSMutableOrderedSet *externalIndexes = [NSMutableOrderedSet orderedSet],
                             *internalIndexes = [NSMutableOrderedSet orderedSet];
@@ -457,7 +457,9 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@", transaction.txHash];
     if ([BRTransactionEntity MR_findAllWithPredicate:predicate].count == 0) {
-        [[BRTransactionEntity MR_createEntity] setAttributesFromTx:transaction];
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            [[BRTransactionEntity MR_createEntityInContext:localContext] setAttributesFromTx:transaction];
+        }];
     }
 
     return YES;

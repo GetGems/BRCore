@@ -164,8 +164,10 @@
             
         _wallet =
             [[BRWallet alloc] initWithSequence:self.sequence
-            masterPublicKey:self.masterPublicKey seed:^NSData *(NSString *authprompt, uint64_t amount) {
-                return [self seedWithPrompt:authprompt forAmount:amount];
+            masterPublicKey:self.masterPublicKey seed:^NSData *(bool authenticate, NSString *authprompt, uint64_t amount) {
+                if(authenticate)
+                    return [self seedWithPrompt:authprompt forAmount:amount];
+                return [self seed];
             }];
 
         _wallet.feePerKb = DEFAULT_FEE_PER_KB;
