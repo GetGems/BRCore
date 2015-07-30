@@ -79,7 +79,9 @@
             [e setAttributesFromTx:tx outputIndex:idx++];
         }
         
-        self.lockTime = tx.lockTime;
+        [self MR_inContext:localContext].lockTime = tx.lockTime;
+        [self MR_inContext:localContext].inputs = inputs;
+        [self MR_inContext:localContext].outputs = outputs;
     }];
     
     return self;
