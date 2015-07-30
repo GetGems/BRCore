@@ -37,6 +37,8 @@
 #import <MagicalRecord.h>
 #import <netdb.h>
 
+#import "BRBundle.h"
+
 #define FIXED_PEERS          @"FixedPeers"
 #define NODE_NETWORK         1  // services value indicating a node offers full blocks, not just headers
 #define PROTOCOL_TIMEOUT     20.0
@@ -228,7 +230,7 @@ static const char *dns_seeds[] = {
 #endif
             if (_peers.count < PEER_MAX_CONNECTIONS) {
                 // if DNS peer discovery fails, fall back on a hard coded list of peers (list taken from satoshi client)
-                for (NSNumber *address in [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]
+                for (NSNumber *address in [NSArray arrayWithContentsOfFile:[BRBundle
                                            pathForResource:FIXED_PEERS ofType:@"plist"]]) {
                     // give hard coded peers a timestamp between 7 and 14 days ago
                     [_peers addObject:[[BRPeer alloc] initWithAddress:address.unsignedIntValue

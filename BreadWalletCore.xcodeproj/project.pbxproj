@@ -165,6 +165,7 @@
 		E1944FA51B66A02400823C1B /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		E1944FA61B66A21B00823C1B /* MagicalRecord+BreadWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+BreadWallet.h"; sourceTree = "<group>"; };
 		E1944FA71B66A21B00823C1B /* MagicalRecord+BreadWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+BreadWallet.m"; sourceTree = "<group>"; };
+		E1B446B01B6A40CB0013375F /* BRBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRBundle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +301,7 @@
 				E1944E591B66820300823C1B /* BRPaymentProtocol.m */,
 				E1944E5A1B66820300823C1B /* BRPaymentRequest.h */,
 				E1944E5B1B66820300823C1B /* BRPaymentRequest.m */,
+				E1B446B01B6A40CB0013375F /* BRBundle.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";

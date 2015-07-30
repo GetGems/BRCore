@@ -29,6 +29,8 @@
 #import "ccMemory.h"
 #import <CommonCrypto/CommonKeyDerivation.h>
 
+#import "BRBundle.h"
+
 #define WORDS @"BIP39EnglishWords"
 
 // BIP39 is method for generating a deterministic wallet seed from a mnemonic phrase
@@ -40,7 +42,7 @@
 {
     if ((data.length % 4) != 0) return nil; // data length must be a multiple of 32 bits
 
-    NSArray *words = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS ofType:@"plist"]];
+    NSArray *words = [NSArray arrayWithContentsOfFile:[BRBundle pathForResource:WORDS ofType:@"plist"]];
     uint32_t n = (uint32_t)words.count, x;
     NSMutableArray *a =
         CFBridgingRelease(CFArrayCreateMutable(SecureAllocator(), data.length*3/4, &kCFTypeArrayCallBacks));
@@ -59,7 +61,7 @@
 
 - (NSData *)decodePhrase:(NSString *)phrase
 {
-    NSArray *words = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS ofType:@"plist"]];
+    NSArray *words = [NSArray arrayWithContentsOfFile:[BRBundle pathForResource:WORDS ofType:@"plist"]];
     NSArray *a = CFBridgingRelease(CFStringCreateArrayBySeparatingStrings(SecureAllocator(),
                                    (CFStringRef)[self normalizePhrase:phrase], CFSTR(" ")));
     NSMutableData *d = [NSMutableData secureDataWithCapacity:(a.count*11 + 7)/8];
