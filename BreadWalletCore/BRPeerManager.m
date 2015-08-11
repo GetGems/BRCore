@@ -793,7 +793,10 @@ static const char *dns_seeds[] = {
         predicate = [NSPredicate predicateWithFormat:@"blockHash in %@", blocks.allKeys];
         for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity MR_findAllWithPredicate:predicate]) {
             [e setAttributesFromBlock:blocks[e.blockHash]];
-            [blocks removeObjectForKey:e.blockHash];
+            if(e.blockHash)
+            {
+                [blocks removeObjectForKey:e.blockHash];
+            }
         }
 
         for (BRMerkleBlock *b in blocks.allValues) {
