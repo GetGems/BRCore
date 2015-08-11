@@ -50,8 +50,17 @@
         NSUInteger idx = 0;
         
         self.txHash = tx.txHash;
-        self.blockHeight = tx.blockHeight;
-        self.timestamp = tx.timestamp;
+        /**
+         A fix to a strange situation where both of the values below did not assign correctly from tx.. leaving just defautls.
+         */
+        for(int i=0; i<40; i++)
+        {
+            if(self.blockHeight == tx.blockHeight && self.timestamp == tx.timestamp)
+                break;
+            [self setBlockHeight:tx.blockHeight];
+            [self setTimestamp:tx.timestamp];
+        }
+        
         
         while (inputs.count < tx.inputHashes.count) {
             [inputs addObject:[BRTxInputEntity MR_createEntityInContext:[self managedObjectContext]]];
@@ -74,7 +83,6 @@
         }
         
         idx = 0;
-        
         for (BRTxOutputEntity *e in outputs) {
             [e setAttributesFromTx:tx outputIndex:idx++];
         }

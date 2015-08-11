@@ -457,15 +457,12 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@", transaction.txHash];
     if ([BRTransactionEntity MR_findAllWithPredicate:predicate].count == 0) {
-        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-            
-        }];
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
             BRTransactionEntity *tx = [BRTransactionEntity MR_createEntityInContext:localContext];
             [tx setAttributesFromTx:transaction];
         }];
     }
-
+    
     return YES;
 }
 
@@ -564,7 +561,7 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
         [self updateBalance];
 
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash in %@", txHashes];
-        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
             for (BRTransactionEntity *e in [BRTransactionEntity MR_findAllWithPredicate:predicate]) {
                 e.blockHeight = height;
                 e.timestamp = timestamp;
