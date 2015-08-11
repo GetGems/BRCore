@@ -457,8 +457,12 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@", transaction.txHash];
     if ([BRTransactionEntity MR_findAllWithPredicate:predicate].count == 0) {
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            
+        }];
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            [[BRTransactionEntity MR_createEntityInContext:localContext] setAttributesFromTx:transaction];
+            BRTransactionEntity *tx = [BRTransactionEntity MR_createEntityInContext:localContext];
+            [tx setAttributesFromTx:transaction];
         }];
     }
 

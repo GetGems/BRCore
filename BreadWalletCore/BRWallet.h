@@ -50,6 +50,8 @@
 - (instancetype)initWithSequence:(id<BRKeySequence>)sequence
                  masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, NSString *authprompt, uint64_t amount))seed;
 
+- (void)updateBalance;
+
 // true if the address is controlled by the wallet
 - (BOOL)containsAddress:(NSString *)address;
 
