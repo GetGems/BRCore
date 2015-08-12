@@ -457,7 +457,7 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@", transaction.txHash];
     if ([BRTransactionEntity MR_findAllWithPredicate:predicate].count == 0) {
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
             BRTransactionEntity *tx = [BRTransactionEntity MR_createEntityInContext:localContext];
             [tx setAttributesFromTx:transaction];
         }];
@@ -466,7 +466,7 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
     return YES;
 }
 
-// removes a transaction from the wallet along with any transactions that depend on its outputs
+// removes a transaction from the wallet a)long with any transactions that depend on its outputs
 - (void)removeTransaction:(NSData *)txHash
 {
     BRTransaction *transaction = self.allTx[txHash];
@@ -561,11 +561,12 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(bool authenticate, N
         [self updateBalance];
 
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash in %@", txHashes];
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            for (BRTransactionEntity *e in [BRTransactionEntity MR_findAllWithPredicate:predicate]) {
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            for (BRTransactionEntity *e in [BRTransactionEntity MR_findAllWithPredicate:predicate inContext:localContext]) {
                 e.blockHeight = height;
                 e.timestamp = timestamp;
             }
+            
         }];
     }
 }

@@ -45,7 +45,9 @@
     self.sequence = [tx.inputSequences[index] intValue];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@ && n == %d", self.txHash, self.n];
-    [[BRTxOutputEntity MR_findAllWithPredicate:predicate].lastObject setSpent:YES];
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        [[BRTxOutputEntity MR_findAllWithPredicate:predicate inContext:localContext].lastObject setSpent:YES];
+    }];
 
     return self;
 }

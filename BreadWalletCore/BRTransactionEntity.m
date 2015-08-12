@@ -50,17 +50,8 @@
         NSUInteger idx = 0;
         
         self.txHash = tx.txHash;
-        /**
-         A fix to a strange situation where both of the values below did not assign correctly from tx.. leaving just defautls.
-         */
-        for(int i=0; i<40; i++)
-        {
-            if(self.blockHeight == tx.blockHeight && self.timestamp == tx.timestamp)
-                break;
-            [self setBlockHeight:tx.blockHeight];
-            [self setTimestamp:tx.timestamp];
-        }
-        
+        [self setBlockHeight:tx.blockHeight];
+        [self setTimestamp:tx.timestamp];
         
         while (inputs.count < tx.inputHashes.count) {
             [inputs addObject:[BRTxInputEntity MR_createEntityInContext:[self managedObjectContext]]];
@@ -117,7 +108,9 @@
 {
     for (BRTxInputEntity *e in self.inputs) { // mark inputs as unspent
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"txHash == %@ && n == %d", e.txHash, e.n];
-        [[BRTxOutputEntity MR_findAllWithPredicate:predicate].lastObject setSpeed:NO];        
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            [[BRTxOutputEntity MR_findAllWithPredicate:predicate inContext:localContext].lastObject setSpent:NO];
+        }];
     }
 
     [self MR_deleteEntity];

@@ -201,10 +201,13 @@ static const char *dns_seeds[] = {
 
         NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
 
-        for (BRPeerEntity *e in [BRPeerEntity MR_findAll]) {
-            if (e.misbehavin == 0) [_peers addObject:[e peer]];
-            else [self.misbehavinPeers addObject:[e peer]];
-        }
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            for (BRPeerEntity *e in [BRPeerEntity MR_findAllInContext:localContext]) {
+                if (e.misbehavin == 0) [_peers addObject:[e peer]];
+                else [self.misbehavinPeers addObject:[e peer]];
+            }
+        }];
+       
 
         [self sortPeers];
 
@@ -262,14 +265,17 @@ static const char *dns_seeds[] = {
         self.checkpoints[@(checkpoint_array[i].height)] = hash;
     }
     
-    for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity MR_findAll]) {
-        BRMerkleBlock *b = e.merkleBlock;
-        
-        _blocks[e.blockHash] = b;
-        
-        // track moving average transactions per block using a 1% low pass filter
-        if (b.totalTransactions > 0) _averageTxPerBlock = _averageTxPerBlock*0.99 + b.totalTransactions*0.01;
-    };
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity MR_findAllInContext:localContext]) {
+            BRMerkleBlock *b = e.merkleBlock;
+            
+            _blocks[e.blockHash] = b;
+            
+            // track moving average transactions per block using a 1% low pass filter
+            if (b.totalTransactions > 0) _averageTxPerBlock = _averageTxPerBlock*0.99 + b.totalTransactions*0.01;
+        };
+
+    }];
     
     [[BRWalletManager sharedInstance] setAverageBlockSize:self.averageTxPerBlock*TX_AVERAGE_SIZE];
 
@@ -758,7 +764,7 @@ static const char *dns_seeds[] = {
         [BRPeerEntity MR_deleteAllMatchingPredicate:predicate];
         
         predicate = [NSPredicate predicateWithFormat:@"address in %@", addrs];
-        for(BRPeerEntity *e in [BRPeerEntity MR_findAllWithPredicate:predicate])
+        for(BRPeerEntity *e in [BRPeerEntity MR_findAllWithPredicate:predicate inContext:localContext])
         {
             BRPeer *p = [peers member:[e peer]];
             
@@ -791,7 +797,7 @@ static const char *dns_seeds[] = {
         [BRMerkleBlockEntity MR_deleteAllMatchingPredicate:predicate];
         
         predicate = [NSPredicate predicateWithFormat:@"blockHash in %@", blocks.allKeys];
-        for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity MR_findAllWithPredicate:predicate]) {
+        for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity MR_findAllWithPredicate:predicate inContext:localContext]) {
             [e setAttributesFromBlock:blocks[e.blockHash]];
             if(e.blockHash)
             {
