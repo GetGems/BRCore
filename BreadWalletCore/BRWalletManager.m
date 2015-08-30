@@ -179,8 +179,10 @@
                     
             if (_wallet.addresses.count > 0 && ! [_wallet containsAddress:k.address]) {
                 NSLog(@"wallet doesn't contain address: %@", k.address);
-                [BRAddressEntity MR_truncateAll];
-                [BRTransactionEntity MR_truncateAll];
+                [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+                    [BRAddressEntity MR_truncateAllInContext:localContext];
+                    [BRTransactionEntity MR_truncateAllInContext:localContext];
+                }];
                 
                 _wallet = nil;
                     
@@ -241,8 +243,10 @@
     @autoreleasepool { // @autoreleasepool ensures sensitive data will be dealocated immediately
         if (seedPhrase) seedPhrase = [self.mnemonic encodePhrase:[self.mnemonic decodePhrase:seedPhrase]];
 
-        [BRAddressEntity MR_truncateAll];
-        [BRTransactionEntity MR_truncateAll];
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            [BRAddressEntity MR_truncateAllInContext:localContext];
+            [BRTransactionEntity MR_truncateAllInContext:localContext];
+        }];
         
         setKeychainData(nil, CREATION_TIME_KEY, NO);
         setKeychainData(nil, MASTER_PUBKEY_KEY, NO);

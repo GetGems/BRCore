@@ -174,7 +174,9 @@ static const char *dns_seeds[] = {
             [self.txRelays removeAllObjects];
             [self.publishedTx removeAllObjects];
             [self.publishedCallback removeAllObjects];
-            [BRMerkleBlockEntity MR_truncateAll];
+            [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+                [BRMerkleBlockEntity MR_truncateAllInContext:localContext];
+            }];
             _blocks = nil;
             _bloomFilter = nil;
             _lastBlock = nil;
@@ -736,7 +738,10 @@ static const char *dns_seeds[] = {
     if (++self.misbehavinCount >= 10) { // clear out stored peers so we get a fresh list from DNS for next connect
         self.misbehavinCount = 0;
         [self.misbehavinPeers removeAllObjects];
-        [BRPeerEntity MR_truncateAll];
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            [BRPeerEntity MR_truncateAllInContext:localContext];
+        }];
+        
         _peers = nil;
     }
     
@@ -910,7 +915,10 @@ static const char *dns_seeds[] = {
         
         // clear out stored peers so we get a fresh list from DNS on next connect attempt
         [self.misbehavinPeers removeAllObjects];
-        [BRPeerEntity MR_truncateAll];
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            [BRPeerEntity MR_truncateAllInContext:localContext];
+        }];
+        
         _peers = nil;
 
         dispatch_async(dispatch_get_main_queue(), ^{
