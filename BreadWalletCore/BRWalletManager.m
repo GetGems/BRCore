@@ -179,9 +179,6 @@
                     
             if (_wallet.addresses.count > 0 && ! [_wallet containsAddress:k.address]) {
                 NSLog(@"wallet doesn't contain address: %@", k.address);
-#if DEBUG
-                abort(); // don't wipe core data for debug builds
-#endif
                 [BRAddressEntity MR_truncateAll];
                 [BRTransactionEntity MR_truncateAll];
                 
