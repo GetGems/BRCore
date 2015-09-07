@@ -273,10 +273,9 @@ static const int8_t base58map[] = {
     
     uint8_t version = *(const uint8_t *)d.bytes;
         
-#if BITCOIN_TESTNET
+if([[self substringToIndex:1] isEqualToString:@"m"] || [[self substringToIndex:1] isEqualToString:@"n"])
     return (version == BITCOIN_PUBKEY_ADDRESS_TEST || version == BITCOIN_SCRIPT_ADDRESS_TEST) ? YES : NO;
-#endif
-
+else
     return (version == BITCOIN_PUBKEY_ADDRESS || version == BITCOIN_SCRIPT_ADDRESS) ? YES : NO;
 }
 
