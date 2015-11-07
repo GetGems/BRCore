@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 
 #import "BRAddressEntity.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 
 @implementation BRAddressEntity
 

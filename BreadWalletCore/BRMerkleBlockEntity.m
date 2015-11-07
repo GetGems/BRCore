@@ -25,7 +25,7 @@
 
 #import "BRMerkleBlockEntity.h"
 #import "BRMerkleBlock.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 
 @implementation BRMerkleBlockEntity
 
