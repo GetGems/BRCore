@@ -7,7 +7,7 @@
 //
 
 #import "MagicalRecordInternal.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 
 @interface MagicalRecord (BreadWallet)
 

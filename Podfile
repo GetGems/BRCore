@@ -2,7 +2,7 @@
 # platform :ios, '6.0'
 
 target 'BreadWalletCore' do
-    pod 'MagicalRecord', '~> 2.2'
+    pod 'MagicalRecord', '2.3.0'
 end
 
 target 'BreadWalletCoreTests' do

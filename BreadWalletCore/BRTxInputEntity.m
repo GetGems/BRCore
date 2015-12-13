@@ -27,7 +27,7 @@
 #import "BRTransactionEntity.h"
 #import "BRTransaction.h"
 #import "BRTxOutputEntity.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 
 @implementation BRTxInputEntity
 

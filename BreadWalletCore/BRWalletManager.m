@@ -32,7 +32,7 @@
 #import "BRTransactionEntity.h"
 #import "BRAddressEntity.h"
 #import "NSString+Bitcoin.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 #import "Reachability.h"
 #import "BreadWalletCommons.h"
 #import <LocalAuthentication/LocalAuthentication.h>

@@ -34,7 +34,7 @@
 #import "BRWalletManager.h"
 #import "NSString+Bitcoin.h"
 #import "NSData+Bitcoin.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 #import <netdb.h>
 
 #import "BRBundle.h"

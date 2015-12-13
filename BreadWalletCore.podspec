@@ -134,6 +134,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.xcconfig = { "HEADER_SEARCH_PATHS" => '/usr/local/include' } # add header search paths
-  s.dependency 'MagicalRecord', '~> 2.2'
+  s.dependency 'MagicalRecord', '2.3.0'
 
 end

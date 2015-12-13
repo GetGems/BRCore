@@ -29,7 +29,7 @@
 #import "BRAddressEntity.h"
 #import "BRTransaction.h"
 #import "BRMerkleBlock.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 #import "NSMutableData+Bitcoin.h"
 #import <CommonCrypto/CommonDigest.h>
 

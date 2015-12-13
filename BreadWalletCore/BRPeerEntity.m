@@ -25,7 +25,7 @@
 
 #import "BRPeerEntity.h"
 #import "BRPeer.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 #import <arpa/inet.h>
 
 @implementation BRPeerEntity

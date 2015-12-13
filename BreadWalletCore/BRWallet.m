@@ -31,7 +31,7 @@
 #import "BRKeySequence.h"
 #import "NSData+Bitcoin.h"
 #import "NSMutableData+Bitcoin.h"
-#import <MagicalRecord.h>
+#import "MagicalRecord.h"
 
 // serialized UTXO
 static NSData *txOutput(NSData *txHash, uint32_t n)
