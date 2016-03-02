@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "MagicalRecord.h"
+#import <MagicalRecord/MagicalRecord.h>
 #import "BRKeySequence.h"
 
 #define BRWalletBalanceChangedNotification @"BRWalletBalanceChangedNotification"

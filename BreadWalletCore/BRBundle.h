@@ -9,6 +9,8 @@
 #ifndef BreadWalletCore_BRBundle_h
 #define BreadWalletCore_BRBundle_h
 
-#define BRBundle [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/BreadWalletCore.bundle"]]
+#import "BRWallet.h"
+
+#define BRBundle [NSBundle bundleWithPath:[[[NSBundle bundleForClass:[BRWallet class]] resourcePath] stringByAppendingString:@"/BreadWalletCore.bundle"]]
 
 #endif

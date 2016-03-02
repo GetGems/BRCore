@@ -23,6 +23,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonDigest.h>
 #import "NSString+Bitcoin.h"
 #import "NSData+Bitcoin.h"
 #import "NSMutableData+Bitcoin.h"
@@ -46,6 +48,24 @@ static const int8_t base58map[] = {
 };
 
 @implementation NSString (Bitcoin)
+
+- (NSString *)md5
+{
+    const char *ptr = [self UTF8String];
+    unsigned char md5Buffer[16];
+    CC_MD5(ptr, [self lengthOfBytesUsingEncoding:NSUTF8StringEncoding], md5Buffer);
+    NSString *output = [[NSString alloc] initWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x", md5Buffer[0], md5Buffer[1], md5Buffer[2], md5Buffer[3], md5Buffer[4], md5Buffer[5], md5Buffer[6], md5Buffer[7], md5Buffer[8], md5Buffer[9], md5Buffer[10], md5Buffer[11], md5Buffer[12], md5Buffer[13], md5Buffer[14], md5Buffer[15]];
+    
+    return output;
+}
+
+- (NSDictionary*)base58ToDictionary
+{
+    NSString *clearResultStr = [[NSString alloc] initWithData:[self base58ToData] encoding:NSUTF8StringEncoding];
+    NSError *jsonError;
+    NSData *objectData = [clearResultStr dataUsingEncoding:NSUTF8StringEncoding];
+    return [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
+}
 
 + (NSString *)base58WithData:(NSData *)d
 {

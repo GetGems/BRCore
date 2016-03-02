@@ -89,10 +89,11 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "libsecp256k1/include/secp256k1/*.{h}", "BreadWalletCore", "BreadWalletCore/**/*.{h,m}"
+  s.source_files  = "BreadWalletCore", "BreadWalletCore/**/*.{h,m}"
+  s.private_header_files = "BreadWalletCore/libsecp256k1/include/secp256k1/*.{h}"
 #s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "BreadWalletCore/**/*.h"
+  #s.public_header_files = "BreadWalletCore/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -109,8 +110,8 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'BreadWalletCore' => ['BreadWalletCoreBundle/**/*']
   }
-  s.preserve_paths      = 'libsecp256k1/libsecp256k1.a'
-  s.vendored_libraries  = 'libsecp256k1/libsecp256k1.a'
+  s.preserve_paths      = 'BreadWalletCore/libsecp256k1/libsecp256k1.a'
+  s.vendored_libraries  = 'BreadWalletCore/libsecp256k1/libsecp256k1.a'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

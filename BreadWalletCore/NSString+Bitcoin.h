@@ -52,6 +52,9 @@
 - (NSData *)hexToData;
 - (NSData *)addressToHash160;
 
+- (NSString *)md5;
+- (NSDictionary*)base58ToDictionary;
+
 - (BOOL)isValidBitcoinAddress;
 - (BOOL)isValidBitcoinPrivateKey;
 - (BOOL)isValidBitcoinBIP38Key; // BIP38 encrypted keys: https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki
